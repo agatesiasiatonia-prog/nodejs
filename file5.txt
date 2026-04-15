@@ -1,0 +1,3 @@
+fullname =agatesi
+email=agatesiasiatonia@gmail.com
+address= kigali, kicukiro
