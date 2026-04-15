@@ -1,5 +1,8 @@
 const { error } = require('console');
+const { promises } = require('dns');
 const fs = require('fs')
+const fs2 = require('fs').promises
+
 console.log("1. starting application");
 console.log("2. starting application");
 
@@ -51,5 +54,21 @@ fs.readFile('file1.txt', 'utf8', (err, data1) => {
         });
       });
     });
+  });
+});
+console.log("===================================promises=============================");
+
+fs2.readFile('file1.txt', 'utf8').then ( data1=> {
+  console.log("1. =============",data1);
+  fs2.readFile('file2.txt', 'utf8').then( data2 => {
+    console.log("2. =============",data2);
+    fs2.readFile('file3.txt', 'utf8').then(data3 => {
+      console.log("3. =============",data3);
+      fs2.readFile('file4.txt', 'utf8').then(data4=>{
+        console.log("4. ==========",data4)
+        fs2.readFile('file5.txt', 'utf8')
+        .then(data5=>console.log("Lastly we are done on file 5: ",data5));
+        });
+      });
   });
 });
